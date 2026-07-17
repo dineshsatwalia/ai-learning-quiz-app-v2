@@ -50,11 +50,20 @@ async function generateQuiz() {
 
         const data = await response.json();
 
+        if (!response.ok) {
+
+            result.innerHTML =
+                "❌ Error: " + data.error;
+
+            return;
+        }
+
         typeWriter(data.reply, result);
 
     } catch (error) {
 
-        result.innerHTML = "❌ Server Error";
+        result.innerHTML =
+            "❌ Server Error: " + error.message;
 
         console.log(error);
     }

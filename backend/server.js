@@ -87,3 +87,4 @@ app.listen(PORT, () => {
     );
 
 });
+const client = new InferenceClient(process.env.HF_API_KEY);
