@@ -76,6 +76,9 @@ app.post("/api/chat", async (req, res) => {
 
 const PORT =
     process.env.PORT || 5000;
+    app.get("/", (req, res) => {
+    res.send("AI Learning Quiz App Backend is running!");
+});
 
 app.listen(PORT, () => {
 
