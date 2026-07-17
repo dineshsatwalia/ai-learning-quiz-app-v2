@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+nav h1 {
+    color: #38bdf8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #38bdf8;
+    color: white;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 8%;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.hero-text h2 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.hero-text button {
+    margin-top: 25px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(
+        to right,
+        #06b6d4,
+        #3b82f6
+    );
+    color: white;
+}
+
+.hero-image img {
+    width: 500px;
+    border-radius: 20px;
+}
+
+.subjects {
+    padding: 60px 8%;
+}
+
+.subjects h2 {
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: flex;
+    gap: 25px;
+}
+
+.card {
+    width: 300px;
+    background: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 20px;
+}
+
+.quiz-box {
+    width: 85%;
+    margin: 50px auto;
+    padding: 30px;
+    background: #1e293b;
+    border-radius: 20px;
+}
+
+.quiz-box h2 {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+    font-size: 16px;
+}
+
+.quiz-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quiz-buttons button {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #3b82f6;
+    color: white;
+}
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #0f172a;
+    border-radius: 10px;
+    min-height: 120px;
+    white-space: pre-wrap;
+}
+
+.leaderboard {
+    padding: 60px 8%;
+}
+
+.leaderboard h2 {
+    margin-bottom: 25px;
+}
+
+.player {
+    background: #1e293b;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.popup h2 {
+    margin-bottom: 15px;
+}
+
+.popup input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+.popup button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 8px;
+}
+
+.light-mode {
+    background: white;
+    color: black;
+}
+
+@media (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-image img {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quiz-buttons {
+        flex-direction: column;
+    }
+}
+.chart-section {
+
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #1e293b;
+    border-radius: 20px;
+}
+
+#quizChart {
+
+    width: 100%;
+    height: 400px;
+}
+#mode {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+#mode option {
+
+    background: #1e293b;
+
+    color: white;
+}

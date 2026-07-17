@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Learning Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h1>AI Tutor</h1>
+<ul>
+
+    <li onclick="goHome()">Home</li>
+
+    <li onclick="goSubjects()">Subjects</li>
+
+    <li onclick="goQuiz()">Quiz</li>
+
+    <li onclick="goLeaderboard()">Leaderboard</li>
+
+</ul>
+
+        <div class="nav-buttons">
+
+            <button onclick="toggleTheme()">🌙</button>
+
+            <button onclick="showLogin()">Login</button>
+
+        </div>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h2>Learn Smarter with AI</h2>
+
+            <p>
+
+                Generate quizzes, notes and practice tests instantly.
+
+            </p>
+
+            <button>Start Learning</button>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000">
+
+        </div>
+
+    </section>
+
+    <section class="subjects">
+
+        <h2>Popular Subjects</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1000">
+
+                <h3>Mathematics</h3>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000">
+
+                <h3>Science</h3>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1000">
+
+                <h3>Programming</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="quiz-box">
+
+        <h2>AI Quiz Generator</h2>
+<select id="mode">
+
+    <option value="learn">
+        Learning Material
+    </option>
+
+    <option value="quiz">
+        Quiz
+    </option>
+
+</select>
+        <textarea id="prompt" placeholder="Enter your topic"></textarea>
+
+        <div class="quiz-buttons">
+
+            <button onclick="startVoice()">🎤 Speak</button>
+
+            <button onclick="generateQuiz()">
+
+                Generate 
+
+            </button>
+
+            <button onclick="speakText()">🔊 Listen</button>
+
+        </div>
+
+        <div id="result"></div>
+
+    </section>
+
+    <section class="leaderboard">
+
+        <h2>🏆 Leaderboard</h2>
+
+        <div class="player">
+
+            🥇 Dinesh — 1200 Points
+
+        </div>
+
+        <div class="player">
+
+            🥈 Aman — 1000 Points
+
+        </div>
+
+        <div class="player">
+
+            🥉 Rahul — 850 Points
+
+        </div>
+
+    </section>
+    <section class="chart-section">
+
+    <h2>Quiz Progress</h2>
+
+    <canvas id="quizChart"></canvas>
+
+</section>
+
+    <div id="loginBox" class="popup">
+
+        <h2>Login</h2>
+
+        <input type="email" placeholder="Email">
+
+        <input type="password" placeholder="Password">
+
+        <button>Login</button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
