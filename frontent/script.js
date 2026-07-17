@@ -1,4 +1,25 @@
+function typeWriter(text, element) {
+
+    element.innerHTML = "";
+
+    let i = 0;
+
+    function typing() {
+
+        if (i < text.length) {
+
+            element.innerHTML += text.charAt(i);
+
+            i++;
+
+            setTimeout(typing, 20);
+        }
+    }
+
+    typing();
+}
 async function generateQuiz() {
+    typeWriter(data.reply, result);
 
     const prompt = document.getElementById("prompt").value;
 
