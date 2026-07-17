@@ -87,3 +87,5 @@ app.listen(PORT, () => {
     );
 
 });
+console.log(process.env.HF_API_KEY);
+dotenv.config();
