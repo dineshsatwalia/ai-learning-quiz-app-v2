@@ -249,3 +249,4 @@ new Chart(ctx, {
         ]
     }
 });
+fetch("https://ai-learning-quiz-app-v2.onrender.com/api/chat")
