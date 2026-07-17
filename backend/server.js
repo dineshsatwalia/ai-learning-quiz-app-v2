@@ -33,25 +33,23 @@ app.post("/api/chat", async (req, res) => {
                 "Generate 10 quiz questions with answers.";
         }
 
-        const result =
-            await client.chatCompletion({
+        const result = await client.chatCompletion({
 
-                model:
-                    "meta-llama/Llama-3.1-8B-Instruct",
+            model: "Qwen/Qwen2.5-7B-Instruct",
 
-                messages: [
+            messages: [
 
-                    {
-                        role: "system",
-                        content: systemPrompt
-                    },
+                {
+                    role: "system",
+                    content: systemPrompt
+                },
 
-                    {
-                        role: "user",
-                        content: message
-                    }
-                ]
-            });
+                {
+                    role: "user",
+                    content: message
+                }
+            ]
+        });
 
         const answer =
             result.choices?.[0]?.message?.content;
@@ -74,11 +72,14 @@ app.post("/api/chat", async (req, res) => {
     }
 });
 
-const PORT =
-    process.env.PORT || 5000;
-    app.get("/", (req, res) => {
-    res.send("AI Learning Quiz App Backend is running!");
+app.get("/", (req, res) => {
+
+    res.send(
+        "AI Learning Quiz App Backend is running!"
+    );
 });
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
 
@@ -87,5 +88,3 @@ app.listen(PORT, () => {
     );
 
 });
-console.log(process.env.HF_API_KEY);
-dotenv.config();
