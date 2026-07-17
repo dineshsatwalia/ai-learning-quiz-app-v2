@@ -13,13 +13,16 @@ function typeWriter(text, element) {
             i++;
 
             setTimeout(typing, 20);
+
         }
+
     }
 
     typing();
+
 }
+
 async function generateQuiz() {
-    typeWriter(data.reply, result);
 
     const prompt = document.getElementById("prompt").value;
 
@@ -32,6 +35,7 @@ async function generateQuiz() {
         alert("Please enter a topic");
 
         return;
+
     }
 
     if (mode === "learn") {
@@ -49,6 +53,7 @@ async function generateQuiz() {
             <br><br>
             ⏳ Please wait...
         `;
+
     }
 
     try {
@@ -77,6 +82,7 @@ async function generateQuiz() {
                 "❌ Error: " + data.error;
 
             return;
+
         }
 
         typeWriter(data.reply, result);
@@ -87,5 +93,188 @@ async function generateQuiz() {
             "❌ Server Error: " + error.message;
 
         console.log(error);
+
     }
+
 }
+
+function showLogin() {
+
+    document.getElementById(
+        "loginBox"
+    ).style.display = "block";
+
+}
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "light-mode"
+    );
+
+}
+
+function startVoice() {
+
+    if (!("webkitSpeechRecognition" in window)) {
+
+        alert(
+            "Voice input is not supported in this browser."
+        );
+
+        return;
+
+    }
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "en-US";
+
+    recognition.start();
+
+    recognition.onresult = function (event) {
+
+        document.getElementById(
+            "prompt"
+        ).value = event.results[0][0].transcript;
+
+    };
+
+}
+
+function speakText() {
+
+    const text = document.getElementById(
+        "result"
+    ).innerText;
+
+    if (text === "") {
+
+        alert("Generate something first");
+
+        return;
+
+    }
+
+    const speech =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+    speech.lang = "en-IN";
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+}
+
+window.onclick = function (event) {
+
+    const popup = document.getElementById(
+        "loginBox"
+    );
+
+    if (event.target === popup) {
+
+        popup.style.display = "none";
+
+    }
+
+};
+
+function goHome() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+function goSubjects() {
+
+    document
+        .querySelector(".subjects")
+        .scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+}
+
+function goQuiz() {
+
+    document
+        .querySelector(".quiz-box")
+        .scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+}
+
+function goLeaderboard() {
+
+    document
+        .querySelector(".leaderboard")
+        .scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+}
+
+const ctx = document
+    .getElementById("quizChart")
+    .getContext("2d");
+
+new Chart(ctx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: [
+
+            "Math",
+
+            "Physics",
+
+            "Chemistry",
+
+            "Programming"
+
+        ],
+
+        datasets: [
+
+            {
+
+                label: "Quiz Score",
+
+                data: [
+
+                    90,
+
+                    75,
+
+                    85,
+
+                    95
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+});
