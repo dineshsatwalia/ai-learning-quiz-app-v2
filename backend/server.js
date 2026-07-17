@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import { InferenceClient } from "@huggingface/inference";
 
 dotenv.config();
 
@@ -9,10 +8,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-const client = new InferenceClient(
-    process.env.HF_API_KEY
-);
 
 app.post("/api/chat", async (req, res) => {
 
@@ -34,31 +29,48 @@ app.post("/api/chat", async (req, res) => {
 
         }
 
-        const result = await client.chatCompletion({
+        const response = await fetch(
+            "https://openrouter.ai/api/v1/chat/completions",
+            {
+                method: "POST",
 
-            model: "Qwen/Qwen2.5-7B-Instruct",
-
-            messages: [
-
-                {
-                    role: "system",
-                    content: systemPrompt
+                headers: {
+                    "Authorization":
+                        `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                    "Content-Type": "application/json"
                 },
 
-                {
-                    role: "user",
-                    content: message
-                }
+                body: JSON.stringify({
 
-            ]
+                    model: "openai/gpt-oss-20b:free",
 
-        });
+                    messages: [
 
-        const answer = result.choices?.[0]?.message?.content;
+                        {
+                            role: "system",
+                            content: systemPrompt
+                        },
+
+                        {
+                            role: "user",
+                            content: message
+                        }
+
+                    ]
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        const answer =
+            data.choices?.[0]?.message?.content;
 
         res.json({
 
-            reply: answer || "No response received"
+            reply:
+                answer ||
+                "No response received"
 
         });
 
@@ -86,6 +98,8 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
 
-    console.log(`Server running on port ${PORT}`);
+    console.log(
+        `Server running on port ${PORT}`
+    );
 
 });
