@@ -337,7 +337,7 @@ window.onload = function () {
             ".nav-buttons"
         ).innerHTML = `
             <span>
-                Welcome, ${user}
+                Dinesh 
             </span>
         `;
 
