@@ -202,7 +202,6 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err);
     });
 
-
 app.post("/api/signup", async (req, res) => {
 
     const { name, email, password } = req.body;
