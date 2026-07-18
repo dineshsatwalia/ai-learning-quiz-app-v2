@@ -278,3 +278,16 @@ new Chart(ctx, {
     }
 
 });
+function showLogin() {
+
+    document.getElementById(
+        "loginBox"
+    ).style.display = "flex";
+
+}
+
+window.onload = function () {
+
+    showLogin();
+
+};
