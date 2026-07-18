@@ -21,6 +21,7 @@ function typeWriter(text, element) {
     typing();
 
 }
+import "./style.css";
 
 async function generateQuiz() {
 
@@ -270,24 +271,7 @@ new Chart(ctx, {
     }
 
 });
-
-function showLogin() {
-
-    document.getElementById(
-        "loginBox"
-    ).style.display = "flex";
-
-}
-
-function closeLogin() {
-
-    document.getElementById(
-        "loginBox"
-    ).style.display = "none";
-
-}
-
-function login() {
+async function login() {
 
     const email =
         document.getElementById("email").value;
@@ -295,27 +279,72 @@ function login() {
     const password =
         document.getElementById("password").value;
 
-    if (
+    const response = await fetch(
 
-        email === "admin@gmail.com" &&
-        password === "123456"
+        "https://ai-learning-quiz-app-v2.onrender.com/api/login",
 
-    ) {
+        {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                    "application/json"
+
+            },
+
+            body: JSON.stringify({
+
+                email,
+                password
+
+            })
+
+        }
+
+    );
+
+    const data =
+        await response.json();
+
+    alert(data.message);
+
+    if (response.ok) {
 
         closeLogin();
+        localStorage.setItem("user", email);
 
-    } else {
-
-        alert(
-            "Wrong email or password"
-        );
+document.querySelector(
+    ".nav-buttons"
+).innerHTML = `
+    <span>
+        Welcome, ${email}
+    </span>
+`;
 
     }
 
 }
-
 window.onload = function () {
 
-    showLogin();
+    const user =
+        localStorage.getItem("user");
+
+    if (user) {
+
+        document.querySelector(
+            ".nav-buttons"
+        ).innerHTML = `
+            <span>
+                Welcome, ${user}
+            </span>
+        `;
+
+    } else {
+
+        showLogin();
+
+    }
 
 };
