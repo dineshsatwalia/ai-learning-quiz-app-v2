@@ -182,125 +182,6 @@ textarea {
     margin-bottom: 15px;
     border-radius: 10px;
 }
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 320px;
-    background: white;
-    color: black;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.4);
-}
-
-.popup h2 {
-    margin-bottom: 15px;
-}
-
-.popup input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid gray;
-}
-
-.popup button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #2563eb;
-    color: white;
-    border-radius: 8px;
-}
-
-.light-mode {
-    background: white;
-    color: black;
-}
-
-@media (max-width: 900px) {
-
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-text {
-        width: 100%;
-    }
-
-    .hero-image img {
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .quiz-buttons {
-        flex-direction: column;
-    }
-}
-.chart-section {
-
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    background: #1e293b;
-    border-radius: 20px;
-}
-
-#quizChart {
-
-    width: 100%;
-    height: 400px;
-}
-#mode {
-
-    width: 100%;
-
-    padding: 15px;
-
-    margin-bottom: 20px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #0f172a;
-
-    color: white;
-
-    font-size: 16px;
-
-    outline: none;
-
-    cursor: pointer;
-}
-
-#mode option {
-
-    background: #1e293b;
-
-    color: white;
-}
 .popup {
 
     display: none;
@@ -313,76 +194,77 @@ textarea {
 
     width: 100%;
 
-    height: 100%;
+    height: 100vh;
 
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.35);
 
     backdrop-filter: blur(10px);
 
     -webkit-backdrop-filter: blur(10px);
 
-    z-index: 1000;
+    z-index: 9999;
 
     justify-content: center;
 
     align-items: center;
-
 }
 
 .popup-content {
 
-    width: 350px;
+    width: 420px;
 
     max-width: 90%;
 
-    background: rgba(255, 255, 255, 0.95);
+    background: white;
 
-    padding: 25px;
+    color: black;
 
-    border-radius: 15px;
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 
     text-align: center;
-
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-
 }
 
 .popup-content h2 {
 
-    margin-bottom: 20px;
+    font-size: 32px;
 
+    margin-bottom: 20px;
 }
 
 .popup-content input {
 
     width: 100%;
 
-    padding: 12px;
+    padding: 14px;
 
-    margin: 10px 0;
+    margin-bottom: 15px;
 
-    border: 1px solid #ccc;
+    border: 1px solid #d1d5db;
 
-    border-radius: 8px;
+    border-radius: 10px;
 
-    box-sizing: border-box;
-
+    font-size: 16px;
 }
 
 .popup-content button {
 
     width: 100%;
 
-    padding: 12px;
-
-    margin-top: 15px;
+    padding: 14px;
 
     border: none;
 
-    border-radius: 8px;
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 18px;
 
     cursor: pointer;
-
-    font-size: 16px;
-
 }

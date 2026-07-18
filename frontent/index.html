@@ -10,201 +10,199 @@
     <title>AI Learning Platform</title>
 
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-    <nav>
+    <div id="mainContent">
 
-        <h1>AI Tutor</h1>
-<ul>
+        <nav>
 
-    <li onclick="goHome()">Home</li>
+            <h1>AI Tutor</h1>
 
-    <li onclick="goSubjects()">Subjects</li>
+            <ul>
 
-    <li onclick="goQuiz()">Quiz</li>
+                <li onclick="goHome()">Home</li>
 
-    <li onclick="goLeaderboard()">Leaderboard</li>
+                <li onclick="goSubjects()">Subjects</li>
 
-</ul>
+                <li onclick="goQuiz()">Quiz</li>
 
-        <div class="nav-buttons">
+                <li onclick="goLeaderboard()">Leaderboard</li>
 
-            <button onclick="toggleTheme()">🌙</button>
+            </ul>
 
-            <button onclick="showLogin()">Login</button>
+            <div class="nav-buttons">
 
-        </div>
+                <button onclick="toggleTheme()">🌙</button>
 
-    </nav>
-
-    <section class="hero">
-
-        <div class="hero-text">
-
-            <h2>Learn Smarter with AI</h2>
-
-            <p>
-
-                Generate quizzes, notes and practice tests instantly.
-
-            </p>
-
-            <button>Start Learning</button>
-
-        </div>
-
-        <div class="hero-image">
-
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000">
-
-        </div>
-
-    </section>
-
-    <section class="subjects">
-
-        <h2>Popular Subjects</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1000">
-
-                <h3>Mathematics</h3>
+                <button onclick="showLogin()">Login</button>
 
             </div>
 
-            <div class="card">
+        </nav>
 
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000">
+        <section class="hero">
 
-                <h3>Science</h3>
+            <div class="hero-text">
+
+                <h2>Learn Smarter with AI</h2>
+
+                <p>
+
+                    Generate quizzes, notes and practice tests instantly.
+
+                </p>
+
+                <button>Start Learning</button>
 
             </div>
 
-            <div class="card">
+            <div class="hero-image">
 
-                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1000">
-
-                <h3>Programming</h3>
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1000">
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
+        <section class="subjects">
 
-    <section class="quiz-box">
+            <h2>Popular Subjects</h2>
 
-        <h2>AI Quiz Generator</h2>
-<select id="mode">
+            <div class="cards">
 
-    <option value="learn">
-        Learning Material
-    </option>
+                <div class="card">
 
-    <option value="quiz">
-        Quiz
-    </option>
+                    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1000">
 
-</select>
-        <textarea id="prompt" placeholder="Enter your topic"></textarea>
+                    <h3>Mathematics</h3>
 
-        <div class="quiz-buttons">
+                </div>
 
-            <button onclick="startVoice()">🎤 Speak</button>
+                <div class="card">
 
-            <button onclick="generateQuiz()">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1000">
 
-                Generate 
+                    <h3>Science</h3>
 
-            </button>
+                </div>
 
-            <button onclick="speakText()">🔊 Listen</button>
+                <div class="card">
 
-        </div>
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1000">
 
-        <div id="result"></div>
+                    <h3>Programming</h3>
 
-    </section>
+                </div>
 
-    <section class="leaderboard">
+            </div>
 
-        <h2>🏆 Leaderboard</h2>
+        </section>
 
-        <div class="player">
+        <section class="quiz-box">
 
-            🥇 Dinesh — 1200 Points
+            <h2>AI Quiz Generator</h2>
 
-        </div>
+            <select id="mode">
 
-        <div class="player">
+                <option value="learn">
+                    Learning Material
+                </option>
 
-            🥈 Aman — 1000 Points
+                <option value="quiz">
+                    Quiz
+                </option>
 
-        </div>
+            </select>
 
-        <div class="player">
+            <textarea id="prompt" placeholder="Enter your topic"></textarea>
 
-            🥉 Rahul — 850 Points
+            <div class="quiz-buttons">
 
-        </div>
+                <button onclick="startVoice()">🎤 Speak</button>
 
-    </section>
-    <section class="chart-section">
+                <button onclick="generateQuiz()">
+                    Generate
+                </button>
 
-    <h2>Quiz Progress</h2>
+                <button onclick="speakText()">🔊 Listen</button>
 
-    <canvas id="quizChart"></canvas>
+            </div>
 
-</section>
+            <div id="result"></div>
+
+        </section>
+
+        <section class="leaderboard">
+
+            <h2>🏆 Leaderboard</h2>
+
+            <div class="player">
+
+                🥇 Dinesh — 1200 Points
+
+            </div>
+
+            <div class="player">
+
+                🥈 Aman — 1000 Points
+
+            </div>
+
+            <div class="player">
+
+                🥉 Rahul — 850 Points
+
+            </div>
+
+        </section>
+
+        <section class="chart-section">
+
+            <h2>Quiz Progress</h2>
+
+            <canvas id="quizChart"></canvas>
+
+        </section>
+
+    </div>
+
+    <!-- Login Popup -->
 
     <div id="loginBox" class="popup">
 
-        <h2>Login</h2>
+        <div class="popup-content">
 
-        <input type="email" placeholder="Email">
+            <h2>Login</h2>
 
-        <input type="password" placeholder="Password">
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter email"
+            >
 
-        <button>Login</button>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+            >
+
+            <button onclick="login()">
+
+                Login
+
+            </button>
+
+        </div>
 
     </div>
 
     <script src="script.js"></script>
-    <!-- Login Popup -->
 
-<div id="loginBox" class="popup">
-
-    <div class="popup-content">
-
-        <h2>Login</h2>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="Enter email"
-        >
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter password"
-        >
-
-        <button onclick="login()">
-            Login
-        </button>
-
-    </div>
-
-</div>
 </body>
 
 </html>

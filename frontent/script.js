@@ -98,14 +98,6 @@ async function generateQuiz() {
 
 }
 
-function showLogin() {
-
-    document.getElementById(
-        "loginBox"
-    ).style.display = "block";
-
-}
-
 function toggleTheme() {
 
     document.body.classList.toggle(
@@ -278,11 +270,47 @@ new Chart(ctx, {
     }
 
 });
+
 function showLogin() {
 
     document.getElementById(
         "loginBox"
     ).style.display = "flex";
+
+}
+
+function closeLogin() {
+
+    document.getElementById(
+        "loginBox"
+    ).style.display = "none";
+
+}
+
+function login() {
+
+    const email =
+        document.getElementById("email").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    if (
+
+        email === "admin@gmail.com" &&
+        password === "123456"
+
+    ) {
+
+        closeLogin();
+
+    } else {
+
+        alert(
+            "Wrong email or password"
+        );
+
+    }
 
 }
 
