@@ -201,7 +201,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => {
         console.log(err);
     });
-    import User from "./models/User.js";
+
 
 app.post("/api/signup", async (req, res) => {
 
