@@ -26,7 +26,6 @@ app.post("/api/chat", async (req, res) => {
 
             systemPrompt =
                 "Generate 10 quiz questions with answers.";
-
         }
 
         const response = await fetch(
@@ -35,27 +34,22 @@ app.post("/api/chat", async (req, res) => {
                 method: "POST",
 
                 headers: {
-                    "Authorization":
-                        `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                    "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
                     "Content-Type": "application/json"
                 },
 
                 body: JSON.stringify({
-
-                    model: "openai/gpt-oss-20b:free",
+                    model: "openai/gpt-oss-20b",
 
                     messages: [
-
                         {
                             role: "system",
                             content: systemPrompt
                         },
-
                         {
                             role: "user",
                             content: message
                         }
-
                     ]
                 })
             }
@@ -63,25 +57,19 @@ app.post("/api/chat", async (req, res) => {
 
         const data = await response.json();
 
-    console.log(data);
+        const answer =
+            data.choices?.[0]?.message?.content;
 
-const answer = data.choices?.[0]?.message?.content;
-
-res.json({
-    reply: answer || JSON.stringify(data)
-});
-    } catch (error) {
-
-        console.error(error);
-
-        res.status(500).json({
-
-            error: error.message
-
+        res.json({
+            reply: answer || "No response received"
         });
 
-    }
+    } catch (error) {
 
+        res.status(500).json({
+            error: error.message
+        });
+    }
 });
 
 app.get("/", (req, res) => {
@@ -94,8 +82,6 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
 
-    console.log(
-        `Server running on port ${PORT}`
-    );
+    console.log(`Server running on port ${PORT}`);
 
 });
