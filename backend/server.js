@@ -63,17 +63,13 @@ app.post("/api/chat", async (req, res) => {
 
         const data = await response.json();
 
-        const answer =
-            data.choices?.[0]?.message?.content;
+    console.log(data);
 
-        res.json({
+const answer = data.choices?.[0]?.message?.content;
 
-            reply:
-                answer ||
-                "No response received"
-
-        });
-
+res.json({
+    reply: answer || JSON.stringify(data)
+});
     } catch (error) {
 
         console.error(error);
