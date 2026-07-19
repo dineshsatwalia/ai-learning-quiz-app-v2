@@ -329,3 +329,14 @@ window.onload = function () {
     showLogin();
 
 };
+function startLearning() {
+
+    document
+        .querySelector(".quiz-box")
+        .scrollIntoView({
+
+            behavior: "smooth"
+
+        });
+
+}
