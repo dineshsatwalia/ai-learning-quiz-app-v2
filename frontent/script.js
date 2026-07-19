@@ -307,8 +307,8 @@ function login() {
 
     if (
 
-        email === "admin@gmail.com" &&
-        password === "123456"
+        email === "dinesh@gmail.com" &&
+        password === "12345"
 
     ) {
 
