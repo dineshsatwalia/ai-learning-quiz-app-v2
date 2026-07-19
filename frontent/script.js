@@ -21,7 +21,6 @@ function typeWriter(text, element) {
     typing();
 
 }
-import "./style.css";
 
 async function generateQuiz() {
 
@@ -271,80 +270,62 @@ new Chart(ctx, {
     }
 
 });
-async function login() {
+function showLogin() {
 
-    const email =
-        document.getElementById("email").value;
+    document.getElementById("loginBox").style.display = "flex";
 
-    const password =
-        document.getElementById("password").value;
+}
 
-    const response = await fetch(
+function closeLogin() {
 
-        "https://ai-learning-quiz-app-v2.onrender.com/api/login",
+    document.getElementById("loginBox").style.display = "none";
 
-        {
+}
 
-            method: "POST",
+window.onload = function () {
 
-            headers: {
+    showLogin();
 
-                "Content-Type":
-                    "application/json"
+};
+function showLogin() {
 
-            },
+    document.getElementById("loginBox").style.display = "flex";
 
-            body: JSON.stringify({
+}
 
-                email,
-                password
+function closeLogin() {
 
-            })
+    document.getElementById("loginBox").style.display = "none";
 
-        }
+}
 
-    );
+function login() {
 
-    const data =
-        await response.json();
+    const email = document.getElementById("email").value;
 
-    alert(data.message);
+    const password = document.getElementById("password").value;
 
-    if (response.ok) {
+    if (
+
+        email === "admin@gmail.com" &&
+        password === "123456"
+
+    ) {
+
+        alert("Login successful");
 
         closeLogin();
-        localStorage.setItem("user", email);
 
-document.querySelector(
-    ".nav-buttons"
-).innerHTML = `
-    <span>
-        Welcome, ${email}
-    </span>
-`;
+    } else {
+
+        alert("Wrong email or password");
 
     }
 
 }
+
 window.onload = function () {
 
-    const user =
-        localStorage.getItem("user");
-
-    if (user) {
-
-        document.querySelector(
-            ".nav-buttons"
-        ).innerHTML = `
-            <span>
-                Dinesh 
-            </span>
-        `;
-
-    } else {
-
-        showLogin();
-
-    }
+    showLogin();
 
 };
