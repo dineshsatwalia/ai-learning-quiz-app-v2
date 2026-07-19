@@ -435,3 +435,44 @@ textarea {
 
     box-shadow: 0 5px 20px rgba(59, 130, 246, 0.5);
 }
+.light-mode {
+
+    background: #f1f5f9;
+
+    color: #111827;
+}
+
+.light-mode nav {
+
+    background: white;
+}
+
+.light-mode .quiz-box,
+.light-mode .card,
+.light-mode .player {
+
+    background: white;
+
+    color: black;
+}
+
+.light-mode #result {
+
+    background: #e2e8f0;
+
+    color: black;
+}
+
+.light-mode textarea {
+
+    background: white;
+
+    color: black;
+}
+
+.light-mode select {
+
+    background: white;
+
+    color: black;
+}
